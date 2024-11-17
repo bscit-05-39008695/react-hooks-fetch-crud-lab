@@ -17,11 +17,16 @@ function App() {
     }
   }, [page]);
 
+  const handleQuestionAdded = (newQuestion) => {
+    setQuestions((prevQuestions) => [...prevQuestions, newQuestion]);
+    setPage("List");  // Switch back to list after adding a question
+  };
+
   return (
     <main>
       <AdminNavBar onChangePage={setPage} />
       {page === "Form" ? (
-        <QuestionForm onQuestionAdded={(newQuestion) => setQuestions([...questions, newQuestion])} />
+        <QuestionForm onQuestionAdded={handleQuestionAdded} />
       ) : (
         <QuestionList questions={questions} />
       )}

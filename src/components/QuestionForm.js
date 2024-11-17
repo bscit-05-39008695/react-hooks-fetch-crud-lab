@@ -37,7 +37,14 @@ function QuestionForm({ onQuestionAdded }) {
       .then((response) => response.json())
       .then((data) => {
         onQuestionAdded(data); // Update parent component state with the new question
-        setFormData({ prompt: "", answer1: "", answer2: "", answer3: "", answer4: "", correctIndex: 0 }); // Reset form
+        setFormData({
+          prompt: "",
+          answer1: "",
+          answer2: "",
+          answer3: "",
+          answer4: "",
+          correctIndex: 0,
+        }); // Reset form fields
       })
       .catch((error) => console.error("Error adding question:", error));
   }
@@ -48,27 +55,56 @@ function QuestionForm({ onQuestionAdded }) {
       <form onSubmit={handleSubmit}>
         <label>
           Prompt:
-          <input type="text" name="prompt" value={formData.prompt} onChange={handleChange} />
+          <input
+            type="text"
+            name="prompt"
+            value={formData.prompt}
+            onChange={handleChange}
+          />
         </label>
         <label>
           Answer 1:
-          <input type="text" name="answer1" value={formData.answer1} onChange={handleChange} />
+          <input
+            type="text"
+            name="answer1"
+            value={formData.answer1}
+            onChange={handleChange}
+          />
         </label>
         <label>
           Answer 2:
-          <input type="text" name="answer2" value={formData.answer2} onChange={handleChange} />
+          <input
+            type="text"
+            name="answer2"
+            value={formData.answer2}
+            onChange={handleChange}
+          />
         </label>
         <label>
           Answer 3:
-          <input type="text" name="answer3" value={formData.answer3} onChange={handleChange} />
+          <input
+            type="text"
+            name="answer3"
+            value={formData.answer3}
+            onChange={handleChange}
+          />
         </label>
         <label>
           Answer 4:
-          <input type="text" name="answer4" value={formData.answer4} onChange={handleChange} />
+          <input
+            type="text"
+            name="answer4"
+            value={formData.answer4}
+            onChange={handleChange}
+          />
         </label>
         <label>
           Correct Answer:
-          <select name="correctIndex" value={formData.correctIndex} onChange={handleChange}>
+          <select
+            name="correctIndex"
+            value={formData.correctIndex}
+            onChange={handleChange}
+          >
             <option value="0">{formData.answer1}</option>
             <option value="1">{formData.answer2}</option>
             <option value="2">{formData.answer3}</option>

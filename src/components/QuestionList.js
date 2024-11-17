@@ -1,10 +1,10 @@
 import React from "react";
 import QuestionItem from "./QuestionItem";
+import { useState } from "react";
 
-function QuestionList({
-  questions: initialQuestions,
- }) {
-  const [questions, setQuestions] = React.useState([]);
+function QuestionList({ onDelete, onUpdate }) {
+  const [questions, setQuestions] = useState([]);
+
   const handleDelete = (id) => {
 
     // Remove the deleted question from the state
